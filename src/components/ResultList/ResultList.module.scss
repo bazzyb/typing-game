@@ -1,0 +1,17 @@
+.resultList {
+  display: flex;
+  justify-content: center;
+}
+
+.resultListItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 36px;
+}
+
+.resultListLetter {
+  text-align: center;
+  font-size: 18px;
+}
