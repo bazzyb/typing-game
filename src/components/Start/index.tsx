@@ -9,13 +9,13 @@ type StartProps = {
   title: string;
   score: number;
   Result: ReactNode;
-  handleRestart: () => void;
+  handleReset: () => void;
   gameTime?: number;
   children: ReactNode;
 }
 
 export function Start(props: StartProps) {
-  const { title, score, gameTime, handleRestart, Result, children } = props;
+  const { title, score, gameTime, handleReset, Result, children } = props;
 
   const [isCountingdown, setIsCountingdown] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
@@ -35,12 +35,20 @@ export function Start(props: StartProps) {
     timer.startTimer();
   }
 
-  function handleGameRestart() {
-    handleRestart();
+  function handleGameReset(toCountdown = false) {
+    handleReset();
     timer.resetTimer();
     setGameStarted(false); 
     setShowResult(false);
-    setIsCountingdown(true);
+    setIsCountingdown(toCountdown);
+  }
+
+  function handleGameRestart() {
+    handleGameReset(true);
+  }
+
+  function handleGameExit() {
+    handleGameReset(false);
   }
 
   return (
@@ -50,6 +58,7 @@ export function Start(props: StartProps) {
         score={score}
         time={timer.time}
         handleRestart={handleGameRestart}
+        handleExit={handleGameExit}
       />
       <div className={classes.startBody}>
         <StartBody

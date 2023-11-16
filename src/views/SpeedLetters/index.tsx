@@ -41,7 +41,7 @@ export function SpeedLetters() {
     });
   }
 
-  function handleRestart() {
+  function handleReset() {
     const newLetter = pickLetter();
     setLetter(newLetter);
     resetGuesses();
@@ -63,7 +63,7 @@ export function SpeedLetters() {
     <Start
       title="Typing Game"
       score={score}
-      handleRestart={handleRestart}
+      handleReset={handleReset}
       Result={(
         <SpeedLettersResult
           score={score}
