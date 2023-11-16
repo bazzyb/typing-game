@@ -8,17 +8,23 @@ export function useCountdown(
   useEffect(() => {
     function updateCountdown() {
       setCountdown(val => {
-        if (val === 1) {
-          handleStart();
-          return val;
-        }
         return val -= 1
       });
     }
 
     const countdownInterval = setInterval(updateCountdown, 1000);
-    return () => clearInterval(countdownInterval);
+    return () => {
+      if (countdown) {
+        clearInterval(countdownInterval);
+      }
+    }
   }, [])
+
+  useEffect(() => {
+    if (countdown === 0) {
+      handleStart();
+    }
+  }, [countdown])
 
   return countdown;
 }

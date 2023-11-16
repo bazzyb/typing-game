@@ -1,39 +1,45 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function useGameTimer(
   gameTime: number | undefined,
   onComplete: () => void,
 ) {
   const [time, setTime] = useState(gameTime || 30);
-  const [gameStarted, setGameStarted] = useState(false);
+  const intervalUpdater = useRef<NodeJS.Timer | null>(null);
 
-  function startTimer() {
-    setGameStarted(true);
+  function clearTimerInterval() {
+    if (intervalUpdater.current) {
+      clearInterval(intervalUpdater.current);
+      intervalUpdater.current = null;
+    }
   }
 
   function resetTimer() {
     setTime(gameTime || 30);
+    clearTimerInterval();
+  }
+
+  function updateGameTimer() {
+    setTime(oldTime => {
+      if (oldTime > 0) {
+        return oldTime -= 1;
+      }
+      clearTimerInterval();
+      onComplete();
+      return oldTime;
+    });
+  }
+
+  function startTimer() {
+    const timer = setInterval(updateGameTimer, 1000);
+    intervalUpdater.current = timer;
   }
 
   useEffect(() => {
-    let intervalUpdater: NodeJS.Timer;
-
-    function updateGameTimer() {
-      setTime(oldTime => {
-        if (oldTime > 0) {
-          return oldTime -= 1;
-        }
-        clearInterval(intervalUpdater);
-        onComplete();
-        return oldTime;
-      });
+    return () => {
+      clearTimerInterval();
     }
+  }, [])
 
-    if (gameStarted) {
-      intervalUpdater = setInterval(updateGameTimer, 1000);
-    }
-    return () => clearInterval(intervalUpdater);
-  }, [gameStarted, setTime])
-
-  return { time, startTimer, resetTimer }
+  return { time, startTimer, resetTimer };
 }
