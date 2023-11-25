@@ -12,7 +12,7 @@ type ResultListProps = {
 }
 
 export function ResultList({ className, prevGuesses }: ResultListProps) {
-  const list = useMemo(() => takeRight(prevGuesses, 10), [prevGuesses]);
+  const list = useMemo(() => takeRight(prevGuesses, 20), [prevGuesses]);
   
   return (
     <ul className={`${className} ${classes.resultList}`}>
