@@ -5,6 +5,7 @@ export function useKeyPress(
   handleKeyDown: (e: string) => void,
 ) {
   function handler(e: KeyboardEvent) {
+    if (e.repeat) return;
     const capitalisedKey = e.key.toUpperCase();
     if (LETTERS.includes(capitalisedKey)) {
       handleKeyDown(capitalisedKey);
