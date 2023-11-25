@@ -7,7 +7,28 @@
   justify-content: center;
 }
 
-.results {
+.prevGuesses {
   position: absolute;
   top: 16px;
+}
+
+.prevGuessesResult {
+  height: 400px;
+  overflow-y: scroll;
+  padding: 8px 0;
+  border-radius: 8px;
+  align-content: baseline;
+  background-color: #333;
+
+  li {
+    justify-content: center;
+  }
+}
+
+.resultTitles {
+  text-align: center;
+  h1 {
+    margin-bottom: 8px;
+  }
+  margin-bottom: 16px;
 }

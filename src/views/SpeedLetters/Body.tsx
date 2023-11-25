@@ -18,7 +18,7 @@ export function SpeedLettersBody(props: SpeedLettersBodyProps) {
   return (
     <div className={classes.speedLettersBody}>
       <LetterBlock>{letter}</LetterBlock>
-      <ResultList className={classes.results} prevGuesses={prevGuesses} />
+      <ResultList className={classes.prevGuesses} prevGuesses={prevGuesses} />
     </div>
   );
 }

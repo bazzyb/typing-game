@@ -2,6 +2,7 @@
 import { round } from 'lodash';
 import { Guess } from '../../types';
 import { ResultList } from '@/components/ResultList';
+import classes from './SpeedLetters.module.scss';
 
 type ResultProps = {
   score: number;
@@ -21,9 +22,11 @@ function calculateSuccessPercentage(prevGuesses: Array<Guess>) {
 export function SpeedLettersResult({ score, prevGuesses }: ResultProps) {
   return (
     <>
-      <h1>Final Score: {score}</h1>
-      <h2>Hit Rate: {calculateSuccessPercentage(prevGuesses)}%</h2>
-      <ResultList prevGuesses={prevGuesses} length={0} />
+      <div className={classes.resultTitles}>
+        <h1>Final Score: {score}</h1>
+        <h2>Hit Rate: {calculateSuccessPercentage(prevGuesses)}%</h2>
+      </div>
+      <ResultList className={classes.prevGuessesResult} prevGuesses={prevGuesses} length={0} />
     </>
   );
 }
