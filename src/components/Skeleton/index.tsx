@@ -48,6 +48,7 @@ export function GameSkeleton(props: SkeletonProps) {
   }
 
   function handleGameExit() {
+    timer.resetTimer();
     setShowResult(true);
   }
 
