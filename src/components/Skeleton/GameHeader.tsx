@@ -1,5 +1,5 @@
 import { VscDebugRestart } from 'react-icons/vsc';
-import { ImExit } from 'react-icons/im';
+import { MdExitToApp } from "react-icons/md";
 
 import { Stats } from './Stats';
 import classes from './Skeleton.module.scss';
@@ -19,12 +19,14 @@ export function GameHeader(props: GameHeaderProps) {
     <div className={classes.gameHeader}>
       <Stats score={score} time={time}/>
       <h1>{title}</h1>
-        <button className={classes.actionIcon} onClick={handleRestart}>
+      <div className={classes.gameHeaderButtons}>
+        <button title="Restart Game" className={classes.actionIcon} onClick={handleRestart}>
           <VscDebugRestart size={24} />
         </button>
-        <button className={classes.actionIcon} onClick={handleExit}>
-          <ImExit size={24} />
+        <button title="Exit Game" className={classes.actionIcon} onClick={handleExit}>
+          <MdExitToApp size={24} />
         </button>
+      </div>
     </div>
   );
 }
