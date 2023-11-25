@@ -9,10 +9,16 @@ import { Guess } from '../../types';
 type ResultListProps = {
   className?: string;
   prevGuesses: Array<Guess>;
+  length?: number;
 }
 
-export function ResultList({ className, prevGuesses }: ResultListProps) {
-  const list = useMemo(() => takeRight(prevGuesses, 20), [prevGuesses]);
+export function ResultList({ className, prevGuesses, length }: ResultListProps) {
+  const list = useMemo(() => {
+    if (length === 0) {
+      return prevGuesses;
+    }
+    return takeRight(prevGuesses, length || 20)
+  }, [prevGuesses]);
   
   return (
     <ul className={`${className} ${classes.resultList}`}>
