@@ -1,11 +1,11 @@
 import { useGameTimer } from '@/hooks/useGameTimer';
 import { ReactNode, useState } from 'react';
 
-import { StartBody } from './Body';
+import { Body } from './Body';
 import { GameHeader } from './GameHeader';
-import classes from './Start.module.scss';
+import classes from './Skeleton.module.scss';
 
-type StartProps = {
+type SkeletonProps = {
   title: string;
   score: number;
   Result: ReactNode;
@@ -14,7 +14,7 @@ type StartProps = {
   children: ReactNode;
 }
 
-export function Start(props: StartProps) {
+export function GameSkeleton(props: SkeletonProps) {
   const { title, score, gameTime, handleReset, Result, children } = props;
 
   const [isCountingdown, setIsCountingdown] = useState(false);
@@ -52,7 +52,7 @@ export function Start(props: StartProps) {
   }
 
   return (
-    <div className={classes.start}>
+    <div className={classes.skeleton}>
       <GameHeader
         title={title}
         score={score}
@@ -60,8 +60,8 @@ export function Start(props: StartProps) {
         handleRestart={handleGameRestart}
         handleExit={handleGameExit}
       />
-      <div className={classes.startBody}>
-        <StartBody
+      <div className={classes.skeletonBody}>
+        <Body
           handleStartCountdown={handleStartCountdown}
           isCountingdown={isCountingdown}
           handleStartGame={handleStartGame}
@@ -71,7 +71,7 @@ export function Start(props: StartProps) {
           Result={Result}
         >
           {children}
-        </StartBody>
+        </Body>
       </div>
     </div>
   )

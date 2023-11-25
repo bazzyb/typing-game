@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
 import { Countdown } from "./Countdown";
-import classes from './Start.module.scss';
+import classes from './Skeleton.module.scss';
 
-type StartBodyProps = {
+type BodyProps = {
   isCountingdown: boolean;
   handleStartCountdown: () => void;
   handleStartGame: () => void;
@@ -14,7 +14,7 @@ type StartBodyProps = {
   children: ReactNode;
 }
 
-export function StartBody(props: StartBodyProps) {
+export function Body(props: BodyProps) {
   const { isCountingdown, handleStartCountdown, handleStartGame, gameStarted, showResult, Result, children } = props;
 
   if (showResult) return <>{Result}</>;

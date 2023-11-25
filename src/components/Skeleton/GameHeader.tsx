@@ -2,7 +2,7 @@ import { VscDebugRestart } from 'react-icons/vsc';
 import { ImExit } from 'react-icons/im';
 
 import { Stats } from './Stats';
-import classes from './Start.module.scss';
+import classes from './Skeleton.module.scss';
 
 type GameHeaderProps = {
   title: string;
@@ -19,12 +19,12 @@ export function GameHeader(props: GameHeaderProps) {
     <div className={classes.gameHeader}>
       <Stats score={score} time={time}/>
       <h1>{title}</h1>
-      <button className={classes.actionIcon} onClick={handleRestart}>
-        <VscDebugRestart size={24} />
-      </button>
-      <button className={classes.actionIcon} onClick={handleExit}>
-        <ImExit size={24} />
-      </button>
+        <button className={classes.actionIcon} onClick={handleRestart}>
+          <VscDebugRestart size={24} />
+        </button>
+        <button className={classes.actionIcon} onClick={handleExit}>
+          <ImExit size={24} />
+        </button>
     </div>
   );
 }

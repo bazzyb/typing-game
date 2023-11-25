@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-import { Start } from '@/components/Start';
+import { GameSkeleton } from '@/components/Skeleton';
 import { LETTERS } from '@/consts';
 import { Guess } from '@/types';
 import { SpeedLettersResult } from './Result';
@@ -60,7 +60,7 @@ export function SpeedLetters() {
   }
 
   return (
-    <Start
+    <GameSkeleton
       title="Typing Game"
       score={score}
       handleReset={handleReset}
@@ -76,6 +76,6 @@ export function SpeedLetters() {
         prevGuesses={prevGuesses}
         handleKeyPress={handleKeyPress}
       />
-    </Start>
+    </GameSkeleton>
   );
 }

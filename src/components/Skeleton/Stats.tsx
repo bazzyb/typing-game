@@ -1,4 +1,4 @@
-import classes from './Start.module.scss';
+import classes from './Skeleton.module.scss';
 
 type GameHeaderProps = {
   score: number;
