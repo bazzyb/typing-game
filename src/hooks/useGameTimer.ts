@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
+const DEFAULT_GAME_TIME = 30;
+
 export function useGameTimer(
   gameTime: number | undefined,
   onComplete: () => void,
 ) {
-  const [time, setTime] = useState(gameTime || 30);
+  const [time, setTime] = useState(gameTime || DEFAULT_GAME_TIME);
   const intervalUpdater = useRef<NodeJS.Timer | null>(null);
 
   function clearTimerInterval() {
@@ -15,7 +17,7 @@ export function useGameTimer(
   }
 
   function resetTimer() {
-    setTime(gameTime || 30);
+    setTime(gameTime || DEFAULT_GAME_TIME);
     clearTimerInterval();
   }
 
