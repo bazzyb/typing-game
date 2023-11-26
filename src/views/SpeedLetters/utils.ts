@@ -1,4 +1,4 @@
-import { LETTERS } from "@/consts";
+import { LETTERS } from '@/consts';
 
 export function pickLetter() {
   const randNum = Math.floor(Math.random() * 26);

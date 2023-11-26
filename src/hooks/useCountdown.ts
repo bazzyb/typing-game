@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-export function useCountdown(
-  handleStart: () => void,
-) {
+export function useCountdown(handleStart: () => void) {
   const [countdown, setCountdown] = useState(3);
 
   useEffect(() => {
     function updateCountdown() {
       setCountdown(val => {
-        return val -= 1
+        return (val -= 1);
       });
     }
 
@@ -17,14 +15,14 @@ export function useCountdown(
       if (countdown) {
         clearInterval(countdownInterval);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   useEffect(() => {
     if (countdown === 0) {
       handleStart();
     }
-  }, [countdown])
+  }, [countdown]);
 
   return countdown;
 }

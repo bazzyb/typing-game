@@ -27,15 +27,15 @@ export function SpeedLetters() {
   }
 
   function correctGuess() {
-    updateGuesses({ 
+    updateGuesses({
       letter: reffedLetter.current,
       success: true,
-    })
+    });
     setScore(s => s + 1);
   }
 
   function incorrectGuess() {
-    updateGuesses({ 
+    updateGuesses({
       letter: reffedLetter.current,
       success: false,
     });
@@ -64,18 +64,9 @@ export function SpeedLetters() {
       title="Typing Game"
       score={score}
       handleReset={handleReset}
-      Result={(
-        <SpeedLettersResult
-          score={score}
-          prevGuesses={prevGuesses}
-        />
-      )}
+      Result={<SpeedLettersResult score={score} prevGuesses={prevGuesses} />}
     >
-      <SpeedLettersBody
-        letter={reffedLetter.current}
-        prevGuesses={prevGuesses}
-        handleKeyPress={handleKeyPress}
-      />
+      <SpeedLettersBody letter={reffedLetter.current} prevGuesses={prevGuesses} handleKeyPress={handleKeyPress} />
     </GameSkeleton>
   );
 }

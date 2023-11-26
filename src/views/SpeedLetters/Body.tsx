@@ -8,7 +8,7 @@ type SpeedLettersBodyProps = {
   letter: string;
   prevGuesses: Array<Guess>;
   handleKeyPress: (key: string) => void;
-}
+};
 
 export function SpeedLettersBody(props: SpeedLettersBodyProps) {
   const { letter, prevGuesses, handleKeyPress } = props;

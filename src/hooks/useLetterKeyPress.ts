@@ -1,9 +1,7 @@
-import { useEffect } from "react";
-import { LETTERS } from "../consts";
+import { useEffect } from 'react';
+import { LETTERS } from '../consts';
 
-export function useKeyPress(
-  handleKeyDown: (e: string) => void,
-) {
+export function useKeyPress(handleKeyDown: (e: string) => void) {
   function handler(e: KeyboardEvent) {
     if (e.repeat) return;
     const capitalisedKey = e.key.toUpperCase();
@@ -13,9 +11,9 @@ export function useKeyPress(
   }
 
   useEffect(() => {
-    window.addEventListener("keydown", handler);
+    window.addEventListener('keydown', handler);
     return () => {
-      window.removeEventListener("keydown", handler);
+      window.removeEventListener('keydown', handler);
     };
   }, []);
 }

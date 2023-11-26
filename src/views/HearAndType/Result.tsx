@@ -2,7 +2,7 @@ import classes from './HearAndType.module.scss';
 
 type ResultProps = {
   score: number;
-}
+};
 
 export function HearAndTypeResult({ score }: ResultProps) {
   return (

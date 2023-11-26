@@ -6,7 +6,7 @@
   max-width: 1000px;
   margin: 24px auto;
   padding: 24px;
-  border: 1px solid #EEE;
+  border: 1px solid #eee;
   border-radius: 8px;
 }
 
@@ -21,15 +21,15 @@
 
 .startBtn {
   padding: 24px 36px;
-  
-  background-color: #EEE;
+
+  background-color: #eee;
   color: #242424;
   border-radius: 12px;
   font-size: 48px;
   font-weight: 700;
 
   &:hover {
-    background-color: #DDD;
+    background-color: #ddd;
     cursor: pointer;
   }
 }
@@ -39,7 +39,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-bottom: 2px solid #EEE;
+  border-bottom: 2px solid #eee;
   padding-bottom: 8px;
   margin-bottom: 16px;
 }

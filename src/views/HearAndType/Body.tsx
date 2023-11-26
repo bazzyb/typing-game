@@ -4,7 +4,7 @@ import { easyWords } from './words/easy';
 import { useState } from 'react';
 
 function getRandomWord() {
-  return easyWords[Math.floor(Math.random() * easyWords.length)]
+  return easyWords[Math.floor(Math.random() * easyWords.length)];
 }
 
 export function HearAndTypeBody() {

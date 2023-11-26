@@ -12,7 +12,7 @@ type SkeletonProps = {
   handleReset: () => void;
   gameTime?: number;
   children: ReactNode;
-}
+};
 
 export function GameSkeleton(props: SkeletonProps) {
   const { title, score, gameTime, handleReset, Result, children } = props;
@@ -24,7 +24,7 @@ export function GameSkeleton(props: SkeletonProps) {
   const timer = useGameTimer(gameTime, () => {
     setShowResult(true);
   });
- 
+
   function handleStartCountdown() {
     setIsCountingdown(true);
   }
@@ -38,7 +38,7 @@ export function GameSkeleton(props: SkeletonProps) {
   function handleGameReset(toCountdown = false) {
     handleReset();
     timer.resetTimer();
-    setGameStarted(false); 
+    setGameStarted(false);
     setShowResult(false);
     setIsCountingdown(toCountdown);
   }
@@ -75,5 +75,5 @@ export function GameSkeleton(props: SkeletonProps) {
         </Body>
       </div>
     </div>
-  )
+  );
 }

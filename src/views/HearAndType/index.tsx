@@ -16,9 +16,7 @@ export function HearAndType() {
       title="Hear And Type"
       score={score}
       handleReset={handleReset}
-      Result={(
-        <HearAndTypeResult score={score} />
-      )}
+      Result={<HearAndTypeResult score={score} />}
     >
       <HearAndTypeBody />
     </GameSkeleton>
