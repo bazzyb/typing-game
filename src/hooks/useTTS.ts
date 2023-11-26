@@ -51,7 +51,7 @@ export function useTTS() {
       return audio;
     }
 
-    console.error('OOPS', res.status, res.statusText);
+    // console.error('OOPS', res.status, res.statusText);
     return null;
   }
 
